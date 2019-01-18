@@ -7,7 +7,7 @@ var game;
 
 function startGame() {
   var canvas = document.getElementById('canvas');
-  var game = new Gamepad(canvas);
+  var game = new Game(canvas);
   // event listeners
 
   game.start();

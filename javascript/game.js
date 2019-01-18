@@ -12,24 +12,38 @@ function Game(canvas) {
 
   this._renderCanvas = function() {
     // renders road
+    this.road.forEach(function(segment) {
+      segment.draw();
+    })
     // renders player
     // renders rival
   }
-
   this._updateLogic = function() {
     // updates road position
+    this._createRoadSegment();
+    this._createRoadSegment();
+    this._createRoadSegment();
+    this._createRoadSegment();
+    this.road.forEach(function(segment) {
+      segment.update();
+    }.bind(this));
+    
     // updates player position
     // updates enemy position
   }
 
-  this.createRoadSegment = function {
+  this._createRoadSegment = function() {
     //creates road segments and pushes them into the array
+    var speed = 1;
+    this.road.push(new RoadSegment(canvas, speed, 'green'));
   }
 
 }
 
 Game.prototype.start = function() {
+
   function gameLoop() {
+
     this._updateLogic();
     this._clearCanvas();
     this._renderCanvas();
