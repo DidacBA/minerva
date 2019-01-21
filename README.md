@@ -45,12 +45,23 @@ game.js
 
 Code responsible for creating instances of the differente classes, updating logic and rendering the final image.
 ```
+```
+splashscreen.js
+
+Code responsible for creating and transitionign splashcreens
+```
 
 ```
 ground.js
 
 This code creates the ground class. Renders the scrolling ground and backdrop image.
 ```
+```
+background.js
+
+Creates and animates background.
+```
+
 ```
 player.js
 
