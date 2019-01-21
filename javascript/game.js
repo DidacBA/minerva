@@ -57,8 +57,12 @@ Game.prototype.keyRight = function() {
 
 Game.prototype.keyUp = function() {
   this.player.moveUp();
+  this.ground.scrollGroundUp();
+  this.backGround.scrollUp();
 }
 
 Game.prototype.keyDown = function() {
   this.player.moveDown();
+  this.ground.scrollGroundDown();
+  this.backGround.scrollDown();
 }
