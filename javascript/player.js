@@ -5,23 +5,34 @@ function Player(finalCanvas) {
   this.width = finalCanvas.width;
   this.height = finalCanvas.height;
 
-  this.speed = 5;
-  this.acceleration = 2;
+  this.maxSpeed = 5;
+  this.acceleration = 3.333;
+  this.playerVelocity = 10;
 
   this.x = 580;
+
+  this.y = 200;
 
   this.playerSprite = document.getElementById('character');
 
 }
 
 Player.prototype.render = function() {
-  this.ctx.drawImage(this.playerSprite, this.x, 200, 172, 312);
+  this.ctx.drawImage(this.playerSprite, this.x, this.y, 172, 312);
 }
 
 Player.prototype.moveLeft = function() {
-  this.x -= 5;
+  this.x -= this.acceleration * 16.3333;
 }
 
 Player.prototype.moveRight = function() {
-  this.x += 5;
+  this.x += this.acceleration * 16.3333;
+}
+
+Player.prototype.moveUp = function() {
+  this.y -= this.acceleration * 16.3333;
+}
+
+Player.prototype.moveDown = function() {
+  this.y += this.acceleration * 16.3333;
 }

@@ -25,6 +25,12 @@ function startGame() {
       case 39:
         game.keyRight();
         break;
+      case 38:
+        game.keyUp();
+        break;
+      case 40:
+        game.keyDown();
+        break;
     } 
   }
 
