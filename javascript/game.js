@@ -6,6 +6,7 @@ function Game(bufferCanvas, finalCanvas) {
   this.finalCtx = finalCanvas.getContext('2d');
 
   this.ground = new Ground(bufferCanvas, finalCanvas);
+  this.backGround = new BackGround(finalCanvas);
 
   this.animation;
 
@@ -14,6 +15,7 @@ function Game(bufferCanvas, finalCanvas) {
 
 Game.prototype._renderGround = function() {
   this.ground.render();
+  this.backGround.render();
 }
 
 Game.prototype._clearCanvas = function() {
@@ -25,9 +27,9 @@ Game.prototype._clearCanvas = function() {
 Game.prototype.start = function() {
   
   function gameLoop() {
-    
-    this._renderGround();
+
     this._clearCanvas()
+    this._renderGround();
     //functions to loop game
     this.animation = window.requestAnimationFrame(gameLoop.bind(this));
 
@@ -35,4 +37,12 @@ Game.prototype.start = function() {
 
   this.animation = window.requestAnimationFrame(gameLoop.bind(this));
 
+}
+
+Game.prototype.keyLeft = function() {
+  this.backGround.scrollRight();
+}
+
+Game.prototype.keyRight = function() {
+  this.backGround.scrollLeft();
 }

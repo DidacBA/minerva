@@ -10,9 +10,25 @@ function startGame() {
   var bufferCanvas = document.getElementById('buffercanvas');
   var finalCanvas = document.getElementById('finalcanvas');
   var game = new Game(bufferCanvas, finalCanvas);
+  var splashScreen = new SplashScreen(finalCanvas);
+  splashScreen.show();
   // event listeners
 
-  game.start();
+  var onkeydown = function(event) {
+    switch(event.keyCode) {
+      case 13: 
+        game.start(); 
+        break;
+      case 37:
+        game.keyLeft();
+        break;
+      case 39:
+        game.keyRight();
+        break;
+    } 
+  }
+
+  document.addEventListener('keydown', onkeydown);
 
 }
 

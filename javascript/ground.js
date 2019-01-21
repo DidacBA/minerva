@@ -15,7 +15,7 @@ function Ground(bufferCanvas, finalCanvas) {
   this.centerY = this.height / 2;
   this.reason = 1.26;
   this.green1 = '#006400';
-  this.green2 = '#009900';
+  this.green2 = '#228B22';
   this.colorChange = false;
 
   this.backgroundImage = document.getElementById('image');
@@ -51,7 +51,6 @@ Ground.prototype.render = function() {
 
   this.bufferContext.fillStyle = 'rgb(163, 189, 239)';
   this.bufferContext.fillRect(this.width - this.width, this.height - this.height, this.width, this.centerY + 10);
-  this.bufferContext.drawImage(this.backgroundImage, 150, 82, 920, 288);
   
   if (y > 2) {
     this.finalContext.drawImage(this.bufferCanvas, 0, 0);
