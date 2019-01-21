@@ -1,4 +1,4 @@
-# racing-game
+# shooting-game
 
 ## Description
 
@@ -26,34 +26,41 @@ Pretify.
 
 ```
 index.html  
+
 HTML file with drawn canvas, where the splash screen, game screen, game over and restart screens will be drawn.
 ```
 ```
 styles.css
+
 Necessary styles to set up the canvas in the screen.
 ```
 ```
 main.js
+
 Javascript file containing the code in charge of initializing game and setting up event listeners.
 ```
 
 ```
 game.js
+
 Code responsible for creating instances of the differente classes, updating logic and rendering the final image.
 ```
 
 ```
 ground.js
+
 This code creates the ground class. Renders the scrolling ground and backdrop image.
 ```
 ```
 player.js
+
 The player class is created in this file. Player should be able to move left and right and up and down.
 ```
 ```
 enemy.js
-```
+
 The enemy class is created in this file. Enemies should scroll and resize as they approach the player, giving the impression of movement from the horizon. 
+```
 
 
 ## States y States Transitions
