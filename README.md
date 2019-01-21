@@ -31,6 +31,11 @@ road.js creates the Road class that will create the road segments.
 car.js creates the car class.
 player.js creates the player car.
 
+```
+class
+bleeeeeeeeeeeeee   
+```
+
 ## States y States Transitions
 
 

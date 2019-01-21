@@ -6,11 +6,14 @@
 var game;
 
 function startGame() {
-  var canvas = document.getElementById('canvas');
-  var game = new Game(canvas);
+
+  var bufferCanvas = document.getElementById('buffercanvas');
+  var finalCanvas = document.getElementById('finalcanvas');
+  var game = new Game(bufferCanvas, finalCanvas);
   // event listeners
 
   game.start();
+
 }
 
 

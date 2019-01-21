@@ -1,55 +1,38 @@
 'use strict';
 
-function Game(canvas) {
-  this.ctx = canvas.getContext('2d');
-  this.player; //
-  this.road = [];
+function Game(bufferCanvas, finalCanvas) {
+
+  this.bufferCtx = bufferCanvas.getContext('2d');
+  this.finalCtx = finalCanvas.getContext('2d');
+
+  this.ground = new Ground(bufferCanvas, finalCanvas);
+
   this.animation;
-
-  this._clearCanvas = function() {
-    this.ctx.clearRect(0, 0, canvas.width, canvas.height);
-  }
-
-  this._renderCanvas = function() {
-    // renders road
-    this.road.forEach(function(segment) {
-      segment.draw();
-    })
-    // renders player
-    // renders rival
-  }
-  this._updateLogic = function() {
-    // updates road position
-    this._createRoadSegment();
-    this._createRoadSegment();
-    this._createRoadSegment();
-    this._createRoadSegment();
-    this.road.forEach(function(segment) {
-      segment.update();
-    }.bind(this));
-    
-    // updates player position
-    // updates enemy position
-  }
-
-  this._createRoadSegment = function() {
-    //creates road segments and pushes them into the array
-    var speed = 1;
-    this.road.push(new RoadSegment(canvas, speed, 'green'));
-  }
 
 }
 
+
+Game.prototype._renderGround = function() {
+  this.ground.render();
+}
+
+Game.prototype._clearCanvas = function() {
+  this.bufferCtx.fillStyle = '#009900';
+  this.bufferCtx.fillRect(0, 0, 1280, 720);
+}
+
+
 Game.prototype.start = function() {
-
+  
   function gameLoop() {
-
-    this._updateLogic();
-    this._clearCanvas();
-    this._renderCanvas();
-
+    
+    this._renderGround();
+    this._clearCanvas()
+    //functions to loop game
     this.animation = window.requestAnimationFrame(gameLoop.bind(this));
+
   }
 
   this.animation = window.requestAnimationFrame(gameLoop.bind(this));
+
 }
