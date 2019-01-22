@@ -28,9 +28,13 @@ BackGround.prototype.scrollLeft = function() {
 }
 
 BackGround.prototype.scrollUp = function() {
-  this.y -= this.acceleration * 16.3333;
+  if (this.y > 400) {
+    this.y -= this.acceleration * 16.3333;
+  }
 }
 
 BackGround.prototype.scrollDown = function() {
-  this.y += this.acceleration * 16.3333;
+  if (this.y < 300) {
+    this.y += this.acceleration * 16.3333;
+  }
 }

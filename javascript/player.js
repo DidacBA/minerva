@@ -7,7 +7,8 @@ function Player(finalCanvas) {
 
   this.maxSpeed = 5;
   this.acceleration = 2.333;
-  this.playerVelocity = 10;
+  this.playerVelocity = 32.6666;
+  this
 
   this.x = 580;
 
@@ -18,29 +19,29 @@ function Player(finalCanvas) {
 }
 
 Player.prototype.render = function() {
-  this.ctx.drawImage(this.playerSprite, this.x, this.y, 172, 312);
+  this.ctx.drawImage(this.playerSprite, this.x, this.y, 86, 156);
 }
 
 Player.prototype.moveLeft = function() {
   if (this.x > 50) { 
-    this.x -= this.acceleration * 16.3333; 
+    this.x -= this.acceleration * this.playerVelocity; 
   }
 }
 
 Player.prototype.moveRight = function() {
   if (this.x < 1060) {
-    this.x += this.acceleration * 16.3333;
+    this.x += this.acceleration * this.playerVelocity;
   }
 }
 
 Player.prototype.moveUp = function() {
-  if (this.y > 50) {
-    this.y -= this.acceleration * 16.3333;
+  if (this.y > 10) {
+    this.y -= this.acceleration * this.playerVelocity;
   }
 }
 
 Player.prototype.moveDown = function() {
-  if (this.y < 400) {
-    this.y += this.acceleration * 16.3333;
+  if (this.y < 500) {
+    this.y += this.acceleration * this.playerVelocity;
   }
 }
