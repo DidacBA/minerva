@@ -16,8 +16,8 @@ function Game(bufferCanvas, finalCanvas) {
 
 
 Game.prototype._renderGround = function() {
-  this.backGround.render();
   this.ground.render();
+  this.backGround.render();
 }
 
 Game.prototype._renderPlayer = function() {
@@ -55,22 +55,22 @@ Game.prototype.start = function() {
 
 Game.prototype.keyLeft = function() {
   this.backGround.scrollRight();
-  this.player.moveLeft();
+  //this.player.moveLeft();
 }
 
 Game.prototype.keyRight = function() {
   this.backGround.scrollLeft();
-  this.player.moveRight();
+  //this.player.moveRight();
 }
 
 Game.prototype.keyUp = function() {
-  this.player.moveUp();
+  //this.player.moveUp();
   this.ground.scrollGroundUp();
   this.backGround.scrollUp();
 }
 
 Game.prototype.keyDown = function() {
-  this.player.moveDown();
+  //this.player.moveDown();
   this.ground.scrollGroundDown();
   this.backGround.scrollDown();
 }

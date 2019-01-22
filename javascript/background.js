@@ -20,15 +20,19 @@ BackGround.prototype.render = function() {
 }
 
 BackGround.prototype.scrollRight = function() {
-  this.x += 20;
+  if (this.x < 500) {
+    this.x += 20;
+  }
 }
 
 BackGround.prototype.scrollLeft = function() {
+  if (this.x > -100) {
     this.x -= 20;
+  }
 }
 
 BackGround.prototype.scrollUp = function() {
-  if (this.y > 400) {
+  if (this.y > 100) {
     this.y -= this.acceleration * 16.3333;
   }
 }
