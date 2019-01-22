@@ -19,6 +19,7 @@ function Player(finalCanvas) {
 }
 
 Player.prototype.render = function() {
+
   this.ctx.drawImage(this.cockpitSprite, 0, 0, 1280, 720);
 
   this.ctx.globalAlpha = 0.7;
@@ -31,6 +32,15 @@ Player.prototype.render = function() {
   this.ctx.strokeStyle = 'yellow';
   this.ctx.stroke();
   this.ctx.globalAlpha = 1;
+
+}
+
+Player.prototype.shoot = function() {
+
+  console.log('shoot')
+
+  
+
 }
 
 

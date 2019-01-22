@@ -8,7 +8,7 @@ function Game(bufferCanvas, finalCanvas) {
   this.ground = new Ground(bufferCanvas, finalCanvas);
   this.backGround = new BackGround(finalCanvas);
   this.player = new Player(finalCanvas);
-  this.enemy = new Enemy(finalCanvas);
+  this.enemy = new Enemy(finalCanvas, 640, 360);
 
   this.animation;
 
@@ -73,4 +73,8 @@ Game.prototype.keyDown = function() {
   //this.player.moveDown();
   this.ground.scrollGroundDown();
   this.backGround.scrollDown();
+}
+
+Game.prototype.keySpace = function() {
+  this.player.shoot();
 }

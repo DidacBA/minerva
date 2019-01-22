@@ -31,6 +31,9 @@ function startGame() {
       case 40:
         game.keyDown();
         break;
+      case 32:
+        game.keySpace();
+        break;
     } 
   }
 
