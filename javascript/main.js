@@ -12,6 +12,8 @@ function startGame() {
   var game = new Game(bufferCanvas, finalCanvas);
   var splashScreen = new SplashScreen(finalCanvas);
   splashScreen.show();
+
+
   // event listeners
 
   var onkeydown = function(event) {
@@ -37,7 +39,16 @@ function startGame() {
     } 
   }
 
+  var onkeyup = function(event) {
+    switch(event.keyCode) {
+      case 32:
+        game.keySpace();
+        break;
+    }
+  }
+
   document.addEventListener('keydown', onkeydown);
+  document.addEventListener('keyup', onkeyup)
 
 }
 

@@ -18,7 +18,7 @@ function Enemy(finalCanvas, x, y) {
   this.startDrawX = 600;
   this.startDrawY = 280;
 
-  this.depth = 1000;
+  this.depth = 10000;
 
   this.increaseSize = function() {
     this.sizeEnemyX += 50;
@@ -37,13 +37,13 @@ Enemy.prototype.update = function() {
 
   this.depth -= 100;
 
-  if (this.depth < 800 && this.depth > 600) {
+  if (this.depth < 8000 && this.depth > 6000) {
     this.increaseSize();
-  } else if (this.depth < 600 && this.depth > 400) {
+  } else if (this.depth < 6000 && this.depth > 4000) {
     this.increaseSize();
-  } else if (this.depth < 400 && this.depth > 200) {
+  } else if (this.depth < 4000 && this.depth > 2000) {
     this.increaseSize();
-  } else if (this.depth < 200 && this.depth > 0) {
+  } else if (this.depth < 2000 && this.depth > 0) {
     this.increaseSize();
   } 
 }

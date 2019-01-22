@@ -32,7 +32,7 @@ BackGround.prototype.scrollLeft = function() {
 }
 
 BackGround.prototype.scrollUp = function() {
-  if (this.y > 100) {
+  if (this.y > 0) {
     this.y -= this.acceleration * 16.3333;
   }
 }

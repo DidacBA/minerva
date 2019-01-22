@@ -10,6 +10,9 @@ function Game(bufferCanvas, finalCanvas) {
   this.player = new Player(finalCanvas);
   this.enemy = new Enemy(finalCanvas, 640, 360);
 
+  this.playerIsShooting = false;
+
+
   this.animation;
 
 }
@@ -24,10 +27,15 @@ Game.prototype._renderPlayer = function() {
   this.player.render();
 }
 
+Game.prototype._renderShot = function() {
+  if (this.isPlayerShooting === true) {
+    this.player.shoot();
+  } 
+}
+
 Game.prototype._renderEnemy = function() {
   this.enemy.update();
   this.enemy.render();
-
 }
 
 Game.prototype._clearCanvas = function() {
@@ -43,6 +51,7 @@ Game.prototype.start = function() {
     this._clearCanvas()
     this._renderGround();
     this._renderEnemy();
+    this._renderShot();
     this._renderPlayer();
     //functions to loop game
     this.animation = window.requestAnimationFrame(gameLoop.bind(this));
@@ -76,5 +85,6 @@ Game.prototype.keyDown = function() {
 }
 
 Game.prototype.keySpace = function() {
-  this.player.shoot();
+  this.isPlayerShooting = !this.isPlayerShooting;
 }
+

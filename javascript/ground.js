@@ -59,7 +59,7 @@ Ground.prototype.render = function() {
 }
 
 Ground.prototype.scrollGroundUp = function() {
-  if (this.centerY > 400) {
+  if (this.centerY > 300) {
     this.centerY -= this.acceleration * 16.3333;
   }
 }

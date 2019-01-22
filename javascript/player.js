@@ -36,12 +36,18 @@ Player.prototype.render = function() {
 }
 
 Player.prototype.shoot = function() {
-
-  console.log('shoot')
-
-  
-
+  this.ctx.beginPath();
+  this.ctx.arc(640, 360, 60, 0, 2 * Math.PI, false);
+  this.ctx.lineWidth = 4;
+  this.ctx.strokeStyle = 'red';
+  this.ctx.stroke();
 }
+
+
+
+
+
+
 
 
 
