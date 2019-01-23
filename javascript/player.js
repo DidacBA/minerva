@@ -16,7 +16,8 @@ function Player(finalCanvas) {
   this.playerSprite = document.getElementById('character');
   this.cockpitSprite = document.getElementById('cockpit');
 
-  this.lives = 1000;
+  this.health = 100;
+  this.isPlayerDead = false;
 }
 
 Player.prototype.render = function() {
@@ -49,15 +50,19 @@ Player.prototype.shoot = function() {
   this.ctx.lineWidth = 10;
 
   this.ctx.beginPath();
-  this.ctx.moveTo(800, 600);
+  this.ctx.moveTo(1100, 450);
   this.ctx.lineTo(640, 360);
   this.ctx.stroke();
 
 }
 
-Player.prototype.loseLife = function() {
-  this.lives -= 1;
-  console.log(this.lives);
+Player.prototype.loseHealth = function() {
+  if (this.health > 0) {
+    this.health -= 1;
+    console.log(this.health);
+  } else {
+    this.isPlayerDead = true;
+  }
 }
 
 

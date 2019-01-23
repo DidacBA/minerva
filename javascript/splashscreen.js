@@ -12,11 +12,33 @@ function SplashScreen(finalCanvas) {
 
 SplashScreen.prototype.show = function() {
   this.ctx.drawImage(this.splashImage, 0, 0, this.width, this.height);
-  this.ctx.font = '30px Libre+Barcode';
-  this.ctx.fillText('Skydrop', 300, 100);
-
 }
+
 
 SplashScreen.prototype.transition = function() {
   
+}
+
+
+//Transitions 
+
+function DeathTransition(finalCanvas) {
+
+  this.ctx = finalCanvas.getContext('2d');
+  this.deathAnimation;
+
+}
+
+DeathTransition.prototype.start = function() {
+
+  function deathLoop() {
+
+    this.ctx.fillRect(0, 0, 1280, 720);
+
+    this.deathAnimation = window.requestAnimationFrame(deathLoop.bind(this));
+
+  }
+
+  this.deathAnimation = window.requestAnimationFrame(deathLoop.bind(this));
+
 }

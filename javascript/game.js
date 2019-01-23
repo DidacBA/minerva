@@ -4,12 +4,15 @@ function Game(bufferCanvas, finalCanvas) {
 
   this.bufferCtx = bufferCanvas.getContext('2d');
   this.finalCtx = finalCanvas.getContext('2d');
+  
 
   this.finalCanvas = finalCanvas;
 
   this.ground = new Ground(bufferCanvas, finalCanvas);
   this.backGround = new BackGround(finalCanvas);
   this.player = new Player(finalCanvas);
+  this.deathTransition = new DeathTransition(finalCanvas);
+
   this.isPlayerShooting = true;
 
   this.enemies = [];
@@ -29,14 +32,24 @@ function Game(bufferCanvas, finalCanvas) {
       }
 
       if (enemy.isAttacking) {
-        this.player.loseLife();
+        this.player.loseHealth();
       }
-      
+
     }.bind(this));
   }
 
   this._createEnemy = function() {
     this.enemies.push(new Enemy(this.finalCanvas, 20, 30, this.isPlayerShooting));
+  }
+
+  this._updatePlayer = function() {
+
+    if (this.player.isPlayerDead) {
+      window.cancelAnimationFrame(this.animation);
+      document.getElementById('finalcanvas').style.display = 'none';
+      document.getElementById('deathcanvas').removeAttribute('style');
+    }
+
   }
 
   this.animation;
@@ -77,6 +90,7 @@ Game.prototype.start = function() {
     this._clearCanvas()
     this._renderGround();
     this._updateEnemies();
+    this._updatePlayer();
     this._renderShot();
     this._renderPlayer();
 
