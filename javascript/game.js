@@ -13,7 +13,7 @@ function Game(bufferCanvas, finalCanvas) {
   this.player = new Player(finalCanvas);
   this.deathTransition = new DeathTransition(finalCanvas);
 
-  this.isPlayerShooting = true;
+  this.isPlayerShooting = false;
 
   this.enemies = [];
 

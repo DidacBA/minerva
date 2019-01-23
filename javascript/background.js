@@ -5,7 +5,7 @@ function BackGround(finalCanvas) {
   this.canvas = finalCanvas;
 
   this.ctx = finalCanvas.getContext('2d');
-  this.backgroundImage = document.getElementById('image');
+  this.backgroundImage = document.getElementById('background');
   this.x = 150;
   this.y = 82;
 
@@ -30,13 +30,13 @@ BackGround.prototype.scrollLeft = function() {
 }
 
 BackGround.prototype.scrollUp = function() {
-  if (this.y > 0) {
+  if (this.y > 20) {
     this.y -= this.acceleration;
   }
 }
 
 BackGround.prototype.scrollDown = function() {
-  if (this.y < 300) {
+  if (this.y < 280) {
     this.y += this.acceleration;
   }
 }

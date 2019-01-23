@@ -14,8 +14,8 @@ function Ground(bufferCanvas, finalCanvas) {
   this.centerX = 640;
   this.centerY = 360;
   this.reason = 1.26;
-  this.green1 = '#006400';
-  this.green2 = '#228B22';
+  this.green1 = '#F4A460';
+  this.green2 = '#CD853F';
   this.colorChange = false;
 
   this.acceleration = 16.3333;
@@ -48,7 +48,7 @@ Ground.prototype.render = function() {
 
     this.bufferContext.fillRect(0, posY, this.width, y);
 
-    this.bufferContext.fillStyle = 'rgb(163, 189, 239)';
+    this.bufferContext.fillStyle = 'rgb(232, 194, 134)';
     this.bufferContext.fillRect(this.width - this.width, this.height - this.height, this.width, this.centerY + 10);
     
     if (y > 2) {
