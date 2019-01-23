@@ -10,7 +10,7 @@ function Game(bufferCanvas, finalCanvas) {
   this.ground = new Ground(bufferCanvas, finalCanvas);
   this.backGround = new BackGround(finalCanvas);
   this.player = new Player(finalCanvas);
-  this.isPlayerShooting = false;
+  this.isPlayerShooting = true;
 
   this.enemies = [];
 
@@ -23,6 +23,15 @@ function Game(bufferCanvas, finalCanvas) {
     this.enemies.forEach(function(enemy) {
       enemy.update();
       enemy.render();
+
+      if (enemy.isDead) {
+        this.enemies.pop();
+      }
+
+      if (enemy.isAttacking) {
+        this.player.loseLife();
+      }
+      
     }.bind(this));
   }
 
@@ -82,30 +91,26 @@ Game.prototype.start = function() {
 Game.prototype.keyLeft = function() {
   this.backGround.scrollRight();
   this.enemies[0].scrollRight();
-  this.player.moveLeft();
 }
 
 Game.prototype.keyRight = function() {
   this.backGround.scrollLeft();
   this.enemies[0].scrollLeft();
-  this.player.moveRight();
 }
 
 Game.prototype.keyUp = function() {
-  //this.player.moveUp();
   this.ground.scrollGroundUp();
   this.backGround.scrollUp();
   this.enemies[0].scrollUp();
 }
 
 Game.prototype.keyDown = function() {
-  //this.player.moveDown();
   this.ground.scrollGroundDown();
   this.backGround.scrollDown();
   this.enemies[0].scrollDown();
 }
 
 Game.prototype.keySpace = function() {
-  this.isPlayerShooting = !this.isPlayerShooting;
+  this.isPlayerShooting = !isPlayerShooting;
 }
 

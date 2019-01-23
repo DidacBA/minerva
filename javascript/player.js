@@ -16,6 +16,7 @@ function Player(finalCanvas) {
   this.playerSprite = document.getElementById('character');
   this.cockpitSprite = document.getElementById('cockpit');
 
+  this.lives = 1000;
 }
 
 Player.prototype.render = function() {
@@ -52,6 +53,11 @@ Player.prototype.shoot = function() {
   this.ctx.lineTo(640, 360);
   this.ctx.stroke();
 
+}
+
+Player.prototype.loseLife = function() {
+  this.lives -= 1;
+  console.log(this.lives);
 }
 
 

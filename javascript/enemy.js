@@ -28,19 +28,22 @@ function Enemy(finalCanvas, x, y, playerIsShooting) {
   }
 
   this.isPlayerShooting = playerIsShooting;
+
+  this.isDead = false;
+
+  this.isAttacking = false;
+
+  this.attackTimeout = setInterval(function() {
+    this.isAttacking = true;
+  }.bind(this), 2000);
 }
 
 Enemy.prototype.render = function() {
   this.ctx.beginPath();
   this.ctx.arc(this.startDrawX, this.startDrawY, this.sizeEnemyX, 0, 2 * Math.PI, false);
   this.ctx.lineWidth = 4;
-  this.ctx.strokeStyle = 'black';
-  this.ctx.stroke();
-  //this.ctx.drawImage(this.enemySprite, this.startDrawX - this.startDrawX/2, this.startDrawY - this.startDrawY/2, this.sizeEnemyX, this.sizeEnemyY);
-  //if (this.sizeEnemyX < 250) {
-  //  this.startDrawX -= 5;
-  //  this.startDrawY -= 5;
-  //}
+  this.ctx.fillStyle = 'black';
+  this.ctx.fill();
 }
 
 Enemy.prototype.update = function() {
@@ -55,7 +58,21 @@ Enemy.prototype.update = function() {
     this.increaseSize();
   } else if (this.depth < 2000 && this.depth > 0) {
     this.increaseSize();
-  } 
+  }
+
+  if (this.startDrawX > 600 && this.startDrawX < 700 && this.startDrawY > 300 && this.startDrawY < 400) {
+    if (this.isPlayerShooting === true) {
+      this.isDead = true;
+    }
+  }
+
+  if (this.isAttacking) {
+    console.log("attack!");
+    this.ctx.globalAlpha = 0.5;
+    this.ctx.fillStyle = 'red';
+    this.ctx.fillRect(0, 0, 1280, 720);
+    this.ctx.globalAlpha = 1;
+  }
 }
 
 Enemy.prototype.scrollRight = function() {
