@@ -17,8 +17,8 @@ function Enemy(finalCanvas, x, y, playerIsShooting) {
 
   this.acceleration = 16.3333;
 
-  this.startDrawX = Math.floor(Math.random() * (900 - 100 + 1)) + 200;
-  this.startDrawY = 280;
+  this.startDrawX = Math.floor(Math.random() * (1280 - 0 + 1)) + 50;
+  this.startDrawY = Math.floor(Math.random()* (720 - 0 + 1)) + 50;
 
   this.depth = 10000;
 
@@ -33,7 +33,7 @@ function Enemy(finalCanvas, x, y, playerIsShooting) {
 Enemy.prototype.render = function() {
   this.ctx.drawImage(this.enemySprite, this.startDrawX - this.startDrawX/2, this.startDrawY - this.startDrawY/2, this.sizeEnemyX, this.sizeEnemyY);
   if (this.sizeEnemyX < 250) {
-    //this.startDrawX -= 17;
+    this.startDrawX -= 5;
   }
 }
 
