@@ -13,8 +13,8 @@ function startGame() {
   var bufferCanvas = document.getElementById('buffercanvas');
   var finalCanvas = document.getElementById('finalcanvas');
   var game = new Game(bufferCanvas, finalCanvas);
-  //var splashScreen = new SplashScreen(finalCanvas);
-  //splashScreen.show();
+  var splashScreen = new SplashScreen(finalCanvas);
+  splashScreen.show();
 
   // event listeners
 
@@ -56,3 +56,21 @@ function startGame() {
 
 
 document.getElementById('start-game-button').addEventListener('click', startGame);
+
+document.getElementById('options-button').addEventListener('click', function() {
+  document.getElementById('splash-screen').style.display = 'none';
+  document.getElementById('options-screen').style.display = null;
+});
+
+document.getElementById('options-return-button').addEventListener('click', function() {
+  document.getElementById('splash-screen').style.display = null;
+  document.getElementById('options-screen').style.display = 'none';
+});
+
+document.getElementById('death-retry-button').addEventListener('click', startGame);
+
+document.getElementById('death-menu-button').addEventListener('click', function() {
+  document.getElementById('splash-screen').style.display = null;
+  document.getElementById('death-screen').style.display = 'none';
+})
+

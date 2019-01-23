@@ -11,7 +11,6 @@ function Game(bufferCanvas, finalCanvas) {
   this.ground = new Ground(bufferCanvas, finalCanvas);
   this.backGround = new BackGround(finalCanvas);
   this.player = new Player(finalCanvas);
-  this.deathTransition = new DeathTransition(finalCanvas);
 
   this.isPlayerShooting = true;
 
@@ -47,7 +46,7 @@ function Game(bufferCanvas, finalCanvas) {
     if (this.player.isPlayerDead) {
       window.cancelAnimationFrame(this.animation);
       document.getElementById('finalcanvas').style.display = 'none';
-      document.getElementById('deathcanvas').removeAttribute('style');
+      document.getElementById('death-screen').style.display = null;
     }
 
   }
@@ -88,6 +87,11 @@ Game.prototype.start = function() {
   var backgroundAudio = new Audio("./music/456269__soundfx-studio__f-15-eagle-cockpit-avionics.wav");
   backgroundAudio.play();
   backgroundAudio.loop = true;
+
+  if (this.player.isPlayerDead) {
+    backgroundAudio.pause()
+    document.getElementById('background-music').removeAttribute('autostart');
+  }
 
   function gameLoop() {
 
