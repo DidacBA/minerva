@@ -18,7 +18,8 @@ function startGame() {
 
   var onkeydown = function(event) {
     switch(event.keyCode) {
-      case 13: 
+      case 13:
+        splashScreen.transition();
         game.start(); 
         break;
       case 37:

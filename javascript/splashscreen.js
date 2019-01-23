@@ -12,7 +12,9 @@ function SplashScreen(finalCanvas) {
 
 SplashScreen.prototype.show = function() {
   this.ctx.drawImage(this.splashImage, 0, 0, this.width, this.height);
-  
+  this.ctx.font = '30px Libre+Barcode';
+  this.ctx.fillText('Skydrop', 300, 100);
+
 }
 
 SplashScreen.prototype.transition = function() {

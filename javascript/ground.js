@@ -18,7 +18,7 @@ function Ground(bufferCanvas, finalCanvas) {
   this.green2 = '#228B22';
   this.colorChange = false;
 
-  this.acceleration = 3.6666;
+  this.acceleration = 16.3333;
 
   this.backgroundImage = document.getElementById('image');
 
@@ -60,13 +60,13 @@ Ground.prototype.render = function() {
 
 Ground.prototype.scrollGroundUp = function() {
   if (this.centerY > 300) {
-    this.centerY -= this.acceleration * 16.3333;
+    this.centerY -= this.acceleration;
   }
 }
 
 Ground.prototype.scrollGroundDown = function() {
   if (this.centerY < 560) {
-    this.centerY += this.acceleration * 16.3333;
+    this.centerY += this.acceleration;
   }
 }
 

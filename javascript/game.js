@@ -8,10 +8,9 @@ function Game(bufferCanvas, finalCanvas) {
   this.ground = new Ground(bufferCanvas, finalCanvas);
   this.backGround = new BackGround(finalCanvas);
   this.player = new Player(finalCanvas);
-  this.enemy = new Enemy(finalCanvas, 640, 360);
+  this.isPlayerShooting = false;
 
-  this.playerIsShooting = false;
-
+  this.enemy = new Enemy(finalCanvas, 640, 360, this.playerIsShooting);
 
   this.animation;
 
@@ -53,7 +52,7 @@ Game.prototype.start = function() {
     this._renderEnemy();
     this._renderShot();
     this._renderPlayer();
-    //functions to loop game
+
     this.animation = window.requestAnimationFrame(gameLoop.bind(this));
 
   }
@@ -64,11 +63,13 @@ Game.prototype.start = function() {
 
 Game.prototype.keyLeft = function() {
   this.backGround.scrollRight();
+  this.enemy.scrollRight();
   //this.player.moveLeft();
 }
 
 Game.prototype.keyRight = function() {
   this.backGround.scrollLeft();
+  this.enemy.scrollLeft();
   //this.player.moveRight();
 }
 
@@ -76,12 +77,14 @@ Game.prototype.keyUp = function() {
   //this.player.moveUp();
   this.ground.scrollGroundUp();
   this.backGround.scrollUp();
+  this.enemy.scrollUp();
 }
 
 Game.prototype.keyDown = function() {
   //this.player.moveDown();
   this.ground.scrollGroundDown();
   this.backGround.scrollDown();
+  this.enemy.scrollDown();
 }
 
 Game.prototype.keySpace = function() {

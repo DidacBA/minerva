@@ -9,14 +9,12 @@ function BackGround(finalCanvas) {
   this.x = 150;
   this.y = 82;
 
-  this.acceleration = 3.6666;
+  this.acceleration = 1.6666;
 
 }
 
 BackGround.prototype.render = function() {
-
   this.ctx.drawImage(this.backgroundImage, this.x, this.y, 920, 288);
-
 }
 
 BackGround.prototype.scrollRight = function() {

@@ -24,8 +24,10 @@ Player.prototype.render = function() {
 
   this.ctx.globalAlpha = 0.7;
   this.ctx.fillStyle = 'yellow';
-  this.ctx.fillRect(638, 345, 4, 30);
-  this.ctx.fillRect(625, 357, 30, 4);
+  this.ctx.fillRect(638, 322, 4, 30); //345
+  this.ctx.fillRect(638, 370, 4, 30); 
+  this.ctx.fillRect(600, 357, 30, 4); //357
+  this.ctx.fillRect(650, 357, 30, 4);
   this.ctx.beginPath();
   this.ctx.arc(640, 360, 20, 0, 2 * Math.PI, false);
   this.ctx.lineWidth = 4;
@@ -36,11 +38,20 @@ Player.prototype.render = function() {
 }
 
 Player.prototype.shoot = function() {
+
   this.ctx.beginPath();
   this.ctx.arc(640, 360, 60, 0, 2 * Math.PI, false);
   this.ctx.lineWidth = 4;
   this.ctx.strokeStyle = 'red';
   this.ctx.stroke();
+
+  this.ctx.lineWidth = 10;
+
+  this.ctx.beginPath();
+  this.ctx.moveTo(800, 600);
+  this.ctx.lineTo(640, 360);
+  this.ctx.stroke();
+
 }
 
 
