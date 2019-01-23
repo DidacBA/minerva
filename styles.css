@@ -1,0 +1,53 @@
+
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+canvas {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(59, 56, 56);
+  color: rgb(237, 253, 86);
+}
+
+#canvas-div {
+  display: none;
+}
+
+#splash-screen {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 28vh;
+}
+
+#game-title {
+  font-family: 'Libre Barcode 128 Text', cursive;
+  font-size: 30vw;
+  margin: 0;
+}
+
+#start-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  padding: 1rem 3rem 1rem 3rem;
+  font-size: 5vw;
+  font-family: 'Audiowide', cursive;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: rgb(253, 255, 236);
+}

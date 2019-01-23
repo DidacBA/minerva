@@ -39,10 +39,15 @@ function Enemy(finalCanvas, x, y, playerIsShooting) {
 }
 
 Enemy.prototype.render = function() {
+
+  var gradient = this.ctx.createRadialGradient(this.startDrawX,this.startDrawY,this.sizeEnemyX, this.startDrawY,this.startDrawY,70);
+  gradient.addColorStop(0, 'yellow');
+  gradient.addColorStop(.9, 'white');
+  gradient.addColorStop(1, 'red');
+
   this.ctx.beginPath();
   this.ctx.arc(this.startDrawX, this.startDrawY, this.sizeEnemyX, 0, 2 * Math.PI, false);
-  this.ctx.lineWidth = 4;
-  this.ctx.fillStyle = 'black';
+  this.ctx.fillStyle = gradient;
   this.ctx.fill();
 }
 

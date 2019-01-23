@@ -13,7 +13,7 @@ function Game(bufferCanvas, finalCanvas) {
   this.player = new Player(finalCanvas);
   this.deathTransition = new DeathTransition(finalCanvas);
 
-  this.isPlayerShooting = false;
+  this.isPlayerShooting = true;
 
   this.enemies = [];
 
@@ -85,6 +85,10 @@ Game.prototype._clearCanvas = function() {
 
 Game.prototype.start = function() {
   
+  var backgroundAudio = new Audio("./music/456269__soundfx-studio__f-15-eagle-cockpit-avionics.wav");
+  backgroundAudio.play();
+  backgroundAudio.loop = true;
+
   function gameLoop() {
 
     this._clearCanvas()

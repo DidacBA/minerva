@@ -7,19 +7,20 @@ var game;
 
 function startGame() {
 
+  document.getElementById('finalcanvas').style.display = null;
+  document.getElementById('splash-screen').style.display = 'none';
+
   var bufferCanvas = document.getElementById('buffercanvas');
   var finalCanvas = document.getElementById('finalcanvas');
   var game = new Game(bufferCanvas, finalCanvas);
-  var splashScreen = new SplashScreen(finalCanvas);
-  splashScreen.show();
-
+  //var splashScreen = new SplashScreen(finalCanvas);
+  //splashScreen.show();
 
   // event listeners
 
   var onkeydown = function(event) {
     switch(event.keyCode) {
       case 13:
-        splashScreen.transition();
         game.start(); 
         break;
       case 37:
@@ -54,4 +55,4 @@ function startGame() {
 }
 
 
-window.addEventListener('load', startGame);
+document.getElementById('start-game-button').addEventListener('click', startGame);

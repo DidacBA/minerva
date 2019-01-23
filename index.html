@@ -3,31 +3,29 @@
   <head>
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
     <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text" rel="stylesheet">
-    <style>
-      canvas {
-        border: 1px solid black;
-        width: 100%;
-      }
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <canvas id="buffercanvas" style="display: none" width="1280" height="720"></canvas>
-    <canvas id="finalcanvas" width="1280" height="720"></canvas>
-    <canvas id="deathcanvas" style="display: none" width="1280" height="720"></canvas>
-    <div>
+    <div id="canvas">
+      <canvas id="buffercanvas" style="display: none" width="1280" height="720"></canvas>
+      <canvas id="finalcanvas" style="display: none" width="1280" height="720"></canvas>
+    </div>
+    <div id="splash-screen">
+      <h1 id="game-title">Minerva</h1>
+      <div id="start-buttons" class="buttons">
+        <button id="start-game-button">Start</button>
+        <button>Options</button>
+      </div>
+    </div>
+    <div id="images">
       <img id="background" style="display: none" src="city-background.png" alt="">
-    </div>
-    <div>
       <img id="splashimage" style="display: none" src="Screenshot 2019-01-21 at 12.53.36.png" alt="">
-    </div>
-    <div>
       <img id="character" style="display: none" src="output-onlinepngtools.png" alt="">
-    </div>
-    <div>
       <img id="enemy" style="display: none" src="CoyvzZ2.png" alt="">
-    </div>
-    <div>
       <img id="cockpit" style="display: none" src="cockpit-pixels.png" alt="">
     </div>
     <script src="javascript/enemy.js"></script>
