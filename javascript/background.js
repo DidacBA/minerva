@@ -9,7 +9,7 @@ function BackGround(finalCanvas) {
   this.x = 150;
   this.y = 82;
 
-  this.acceleration = 1.6666;
+  this.acceleration = 16.3333;
 
 }
 
@@ -31,12 +31,12 @@ BackGround.prototype.scrollLeft = function() {
 
 BackGround.prototype.scrollUp = function() {
   if (this.y > 0) {
-    this.y -= this.acceleration * 16.3333;
+    this.y -= this.acceleration;
   }
 }
 
 BackGround.prototype.scrollDown = function() {
   if (this.y < 300) {
-    this.y += this.acceleration * 16.3333;
+    this.y += this.acceleration;
   }
 }

@@ -16,7 +16,7 @@ function Game(bufferCanvas, finalCanvas) {
 
   this._updateEnemies = function() {
 
-    if (Math.random() > 0.95) {
+    if (this.enemies.length === 0) {
       this._createEnemy();
     }
 
@@ -81,28 +81,28 @@ Game.prototype.start = function() {
 
 Game.prototype.keyLeft = function() {
   this.backGround.scrollRight();
-  //this.enemy.scrollRight();
-  //this.player.moveLeft();
+  this.enemies[0].scrollRight();
+  this.player.moveLeft();
 }
 
 Game.prototype.keyRight = function() {
   this.backGround.scrollLeft();
-  //this.enemy.scrollLeft();
-  //this.player.moveRight();
+  this.enemies[0].scrollLeft();
+  this.player.moveRight();
 }
 
 Game.prototype.keyUp = function() {
   //this.player.moveUp();
   this.ground.scrollGroundUp();
   this.backGround.scrollUp();
-  //this.enemy.scrollUp();
+  this.enemies[0].scrollUp();
 }
 
 Game.prototype.keyDown = function() {
   //this.player.moveDown();
   this.ground.scrollGroundDown();
   this.backGround.scrollDown();
-  //this.enemy.scrollDown();
+  this.enemies[0].scrollDown();
 }
 
 Game.prototype.keySpace = function() {

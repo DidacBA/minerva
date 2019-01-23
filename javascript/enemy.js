@@ -6,7 +6,7 @@ function Enemy(finalCanvas, x, y, playerIsShooting) {
 
   this.enemySprite = document.getElementById('enemy');
 
-  this.sizeEnemyX = 50;
+  this.sizeEnemyX = 10;
   this.sizeEnemyY = 50;
 
   this.width = 1280;
@@ -17,13 +17,13 @@ function Enemy(finalCanvas, x, y, playerIsShooting) {
 
   this.acceleration = 16.3333;
 
-  this.startDrawX = Math.floor(Math.random() * (1280 - 0 + 1)) + 50;
-  this.startDrawY = Math.floor(Math.random()* (720 - 0 + 1)) + 50;
+  this.startDrawX = Math.floor(Math.random() * (1100 - 0 + 1)) + 50;
+  this.startDrawY = Math.floor(Math.random()* (600 - 0 + 1)) + 50;
 
   this.depth = 10000;
 
   this.increaseSize = function() {
-    this.sizeEnemyX += 4;
+    this.sizeEnemyX += 1;
     this.sizeEnemyY += 4;
   }
 
@@ -31,10 +31,16 @@ function Enemy(finalCanvas, x, y, playerIsShooting) {
 }
 
 Enemy.prototype.render = function() {
-  this.ctx.drawImage(this.enemySprite, this.startDrawX - this.startDrawX/2, this.startDrawY - this.startDrawY/2, this.sizeEnemyX, this.sizeEnemyY);
-  if (this.sizeEnemyX < 250) {
-    this.startDrawX -= 5;
-  }
+  this.ctx.beginPath();
+  this.ctx.arc(this.startDrawX, this.startDrawY, this.sizeEnemyX, 0, 2 * Math.PI, false);
+  this.ctx.lineWidth = 4;
+  this.ctx.strokeStyle = 'black';
+  this.ctx.stroke();
+  //this.ctx.drawImage(this.enemySprite, this.startDrawX - this.startDrawX/2, this.startDrawY - this.startDrawY/2, this.sizeEnemyX, this.sizeEnemyY);
+  //if (this.sizeEnemyX < 250) {
+  //  this.startDrawX -= 5;
+  //  this.startDrawY -= 5;
+  //}
 }
 
 Enemy.prototype.update = function() {
