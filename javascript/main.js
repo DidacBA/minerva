@@ -54,6 +54,8 @@ function main() {
     <div id="canvas">
       <canvas id="buffercanvas" width="1280" height="720" style="display: none"></canvas>
       <canvas id="finalcanvas" width="1280" height="720"></canvas>
+
+      <audio src="music/456269__soundfx-studio__f-15-eagle-cockpit-avionics.wav" autoplay>
     </div>`);
   
     var bufferCanvas = gameScreen.querySelector('#buffercanvas');

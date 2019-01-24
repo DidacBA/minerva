@@ -65,10 +65,6 @@ Game.prototype._clearCanvas = function() {
 
 
 Game.prototype.start = function() {
-  
-  var backgroundAudio = new Audio("./music/456269__soundfx-studio__f-15-eagle-cockpit-avionics.wav");
-  backgroundAudio.play();
-  backgroundAudio.loop = true;
 
   if (this.player.isPlayerDead) {
     backgroundAudio.pause()
