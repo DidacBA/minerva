@@ -11,6 +11,7 @@ function Game(bufferCanvas, finalCanvas) {
   this.player = new Player(finalCanvas);
   this.isPlayerShooting = false;
   this.shootingSound = new Audio("music/165394__shawnyboy__heavy-machine-gun.wav");
+  this.lowHealthSound = new Audio("music/135613__danielnieto7__alert.wav");
   this.enemies = [];
 
   this._updateEnemies = function() {
@@ -29,6 +30,7 @@ function Game(bufferCanvas, finalCanvas) {
 
       if (enemy.isAttacking) {
         this.player.loseHealth();
+        this.lowHealthSound.play();
       }
 
     }.bind(this));

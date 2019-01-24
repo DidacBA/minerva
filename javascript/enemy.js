@@ -74,7 +74,7 @@ Enemy.prototype.update = function() {
 }
 
 Enemy.prototype.killEnemy = function() {
-  if (this.startDrawX > 600 && this.startDrawX < 700 && this.startDrawY > 300 && this.startDrawY < 400) {
+  if (this.startDrawX > 580 && this.startDrawX < 700 && this.startDrawY > 300 && this.startDrawY < 420) {
       this.isDead = true;
   }
 }

@@ -17,10 +17,15 @@ function Player(finalCanvas) {
   this.cockpitSprite = document.getElementById('cockpit');
   this.flash = document.getElementById('flash');
 
-  this.health = 100;
+  this.health = 300;
   this.isPlayerDead = false;
 
-
+  this.lowHealthSound = new Audio("music/135613__danielnieto7__alert.wav");
+  if (this.health < 250) {
+    lowHealthSound.play();
+  } else if (this.health <= 0) {
+    lowHealthSound.loop = false;
+  }
 }
 
 Player.prototype.render = function() {
