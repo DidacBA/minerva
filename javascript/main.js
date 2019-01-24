@@ -38,8 +38,20 @@ function main() {
   }
 
   function buildGameOverScreen() {
+    var quotesArray = [`"The ships hung in the sky, much the way that bricks don't." (Douglas Adams)`,
+      `"Any planet is Earth to those who live in it." (Isaac Asimov)`,
+      `"Two possibilities exist: either we are alone in the Universe or we are not. Both are equally terrifying." (Arthur C. Clarke)`,
+      `"A human being should be able to change a diaper, plan an invasion, butcher a hog, conn a ship, design a building, write a sonnet, balance accounts, build a wall, set a bone, comfort the dying, take orders, give orders, cooperate, act alone, solve equations, analyze a new problem, pitch manure, program a computer, cook a tasty meal, fight efficiently, die gallantly. Specialization is for insects." (Robert A. Heinlein)`,
+      `"Deep in the human unconscious is a pervasive need for a logical universe that makes sense. But the real universe is always one step beyond logic." (Frank Herbert)`,
+      `"I'm not insane sir. I have a finely calibrated sense of acceptable risk." (John Scalzi)`,
+      `"I am living in a nightmare, from which from time to time I wake in sleep." (Ursula K. Le Guin)`,
+      `"The end justifies the means. But what if there never is an end? All we have is means." (Ursula K. Le Guin)`,
+      `"Where does your soul go, when you die in Hell?" (Ursula K. Le Guin)`
+    ];
+
     var gameOverScreen = buildDom(`
     <div id="death-screen">
+      <h3>${quotesArray[Math.floor(Math.random() * 9)]}</h3>
       <button id="death-retry-button" class="menu-buttons">Live again</button>
       <button id="death-menu-button" class="menu-buttons">Main menu</button>
       
