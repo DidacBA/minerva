@@ -4,6 +4,7 @@
 // event listeners for keys: accelerate, decelerate, left, right
 
 function main() {
+
   function buildDom(html) {
     var div = document.querySelector('.container');
     div.innerHTML = html;
@@ -57,23 +58,18 @@ function main() {
       <canvas id="buffercanvas" width="1280" height="720" style="display: none"></canvas>
       <canvas id="finalcanvas" width="1280" height="720"></canvas>
 
-      <audio src="music/456269__soundfx-studio__f-15-eagle-cockpit-avionics.wav" autoplay>
+      <audio src="music/456269__soundfx-studio__f-15-eagle-cockpit-avionics.wav" autoplay loop>
     </div>`);
   
     var bufferCanvas = gameScreen.querySelector('#buffercanvas');
     var finalCanvas = gameScreen.querySelector('#finalcanvas');
     var game = new Game(bufferCanvas, finalCanvas);
     game.onCallbackGameOver(buildGameOverScreen);
-    //var splashScreen = new SplashScreen(finalCanvas);
-    //splashScreen.show();
   
     // event listeners
   
     var onkeydown = function(event) {
       switch(event.keyCode) {
-        //case 13:
-        //  game.start(); 
-        //  break;
         case 37:
           game.keyLeft();
           break;

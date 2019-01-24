@@ -66,11 +66,6 @@ Game.prototype._clearCanvas = function() {
 
 Game.prototype.start = function() {
 
-  if (this.player.isPlayerDead) {
-    backgroundAudio.pause()
-    document.getElementById('background-music').removeAttribute('autostart');
-  }
-
   function gameLoop() {
 
     this._clearCanvas()

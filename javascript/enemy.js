@@ -35,7 +35,7 @@ function Enemy(finalCanvas, x, y, playerIsShooting) {
 
   this.attackTimeout = setInterval(function() {
     this.isAttacking = true;
-  }.bind(this), 2000);
+  }.bind(this), 3000);
 }
 
 Enemy.prototype.render = function() {
