@@ -40,10 +40,10 @@ function Enemy(finalCanvas, x, y, playerIsShooting) {
 
 Enemy.prototype.render = function() {
 
-  var gradient = this.ctx.createRadialGradient(this.startDrawX,this.startDrawY,this.sizeEnemyX, this.startDrawY,this.startDrawY,70);
-  gradient.addColorStop(0, 'yellow');
+  var gradient = this.ctx.createRadialGradient(this.startDrawX,this.startDrawY,(this.sizeEnemyX > 20) ? this.sizeEnemyX - 20 : this.sizeEnemyX, this.startDrawY,this.startDrawY, 1);
+  gradient.addColorStop(0, '#966FD6');
   gradient.addColorStop(.9, 'white');
-  gradient.addColorStop(1, 'red');
+  gradient.addColorStop(1, '#BF94E4');
 
   this.ctx.beginPath();
   this.ctx.arc(this.startDrawX, this.startDrawY, this.sizeEnemyX, 0, 2 * Math.PI, false);
@@ -66,7 +66,7 @@ Enemy.prototype.update = function() {
   }
 
   if (this.isAttacking) {
-    this.ctx.globalAlpha = 0.5;
+    this.ctx.globalAlpha = 0.3;
     this.ctx.fillStyle = 'red';
     this.ctx.fillRect(0, 0, 1280, 720);
     this.ctx.globalAlpha = 1;

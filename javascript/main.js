@@ -18,6 +18,8 @@ function main() {
         <button id="start-game-button" class="menu-buttons">Start</button>
         <button id="options-button" class="menu-buttons">Options</button>
       </div>
+
+      <audio src="music/bensound-epic.mp3" autoplay>
     </div>`);
 
     splashScreen.querySelector('#start-game-button').addEventListener('click', startGame);
