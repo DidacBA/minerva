@@ -4,16 +4,12 @@ function Game(bufferCanvas, finalCanvas) {
 
   this.bufferCtx = bufferCanvas.getContext('2d');
   this.finalCtx = finalCanvas.getContext('2d');
-  
-
+  this.animation;
   this.finalCanvas = finalCanvas;
-
   this.ground = new Ground(bufferCanvas, finalCanvas);
   this.backGround = new BackGround(finalCanvas);
   this.player = new Player(finalCanvas);
-
-  this.isPlayerShooting = true;
-
+  this.isPlayerShooting = false;
   this.enemies = [];
 
   this._updateEnemies = function() {
@@ -40,21 +36,7 @@ function Game(bufferCanvas, finalCanvas) {
   this._createEnemy = function() {
     this.enemies.push(new Enemy(this.finalCanvas, 20, 30, this.isPlayerShooting));
   }
-
-  this._updatePlayer = function() {
-
-    if (this.player.isPlayerDead) {
-      window.cancelAnimationFrame(this.animation);
-      document.getElementById('finalcanvas').style.display = 'none';
-      document.getElementById('death-screen').style.display = null;
-    }
-
-  }
-
-  this.animation;
-
 }
-
 
 Game.prototype._renderGround = function() {
   this.ground.render();
@@ -98,16 +80,17 @@ Game.prototype.start = function() {
     this._clearCanvas()
     this._renderGround();
     this._updateEnemies();
-    this._updatePlayer();
     this._renderShot();
     this._renderPlayer();
 
     this.animation = window.requestAnimationFrame(gameLoop.bind(this));
-
+    if (this.player.isPlayerDead) {
+      window.cancelAnimationFrame(this.animation);
+      this.onGameOver();
+    }
   }
 
-  this.animation = window.requestAnimationFrame(gameLoop.bind(this));
-
+  window.requestAnimationFrame(gameLoop.bind(this));
 }
 
 Game.prototype.keyLeft = function() {
@@ -133,6 +116,15 @@ Game.prototype.keyDown = function() {
 }
 
 Game.prototype.keySpace = function() {
-  this.isPlayerShooting = !isPlayerShooting;
+  this.isPlayerShooting = !this.isPlayerShooting;
+  if(this.isPlayerShooting) {
+    this.enemies[0].killEnemy();
+  }
+  setTimeout(function() {
+    this.isPlayerShooting = false;
+  }.bind(this), 2000)
 }
 
+Game.prototype.onCallbackGameOver = function(callback) {
+  this.onGameOver = callback;
+}

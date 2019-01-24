@@ -16,7 +16,7 @@ function Player(finalCanvas) {
   this.playerSprite = document.getElementById('character');
   this.cockpitSprite = document.getElementById('cockpit');
 
-  this.health = 100;
+  this.health = 1000;
   this.isPlayerDead = false;
 }
 
@@ -59,7 +59,6 @@ Player.prototype.shoot = function() {
 Player.prototype.loseHealth = function() {
   if (this.health > 0) {
     this.health -= 1;
-    console.log(this.health);
   } else {
     this.isPlayerDead = true;
   }

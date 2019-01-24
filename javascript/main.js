@@ -3,74 +3,101 @@
 // start game
 // event listeners for keys: accelerate, decelerate, left, right
 
-var game;
+function main() {
+  function buildDom(html) {
+    var div = document.querySelector('.container');
+    div.innerHTML = html;
+    return div;
+  }
+  
+  function buildSplashScreen() {
+    var splashScreen = buildDom(`
+    <div id="splash-screen">
+      <h1 id="game-title">Minerva</h1>
+      <div id="start-buttons">
+        <button id="start-game-button" class="menu-buttons">Start</button>
+        <button id="options-button" class="menu-buttons">Options</button>
+      </div>
+    </div>`);
 
-function startGame() {
-
-  document.getElementById('finalcanvas').style.display = null;
-  document.getElementById('splash-screen').style.display = 'none';
-
-  var bufferCanvas = document.getElementById('buffercanvas');
-  var finalCanvas = document.getElementById('finalcanvas');
-  var game = new Game(bufferCanvas, finalCanvas);
-  var splashScreen = new SplashScreen(finalCanvas);
-  splashScreen.show();
-
-  // event listeners
-
-  var onkeydown = function(event) {
-    switch(event.keyCode) {
-      case 13:
-        game.start(); 
-        break;
-      case 37:
-        game.keyLeft();
-        break;
-      case 39:
-        game.keyRight();
-        break;
-      case 38:
-        game.keyUp();
-        break;
-      case 40:
-        game.keyDown();
-        break;
-      case 32:
-        game.keySpace();
-        break;
-    } 
+    splashScreen.querySelector('#start-game-button').addEventListener('click', startGame);
+    splashScreen.querySelector('#options-button').addEventListener('click', buildOptionsScreen)
   }
 
-  var onkeyup = function(event) {
-    switch(event.keyCode) {
-      case 32:
-        game.keySpace();
-        break;
+  function buildOptionsScreen() {
+    var optionsScreen = buildDom(`
+    <div id="options-screen">
+      <h2>Options</h2>
+      <button id="options-return-button" class="menu-buttons">Return</button>
+    </div>`);
+
+    optionsScreen.querySelector('#options-return-button').addEventListener('click', buildSplashScreen)
+  }
+
+  function buildGameOverScreen() {
+    var gameOverScreen = buildDom(`
+    <div id="death-screen">
+      <button id="death-retry-button" class="menu-buttons">Live again</button>
+      <button id="death-menu-button" class="menu-buttons">Main menu</button>
+    </div>`);
+
+    gameOverScreen.querySelector('#death-retry-button').addEventListener('click', startGame);
+    gameOverScreen.querySelector('#death-menu-button').addEventListener('click', buildSplashScreen);
+
+  }
+
+  function startGame() {
+    
+    var gameScreen = buildDom(`
+    <div id="canvas">
+      <canvas id="buffercanvas" width="1280" height="720" style="display: none"></canvas>
+      <canvas id="finalcanvas" width="1280" height="720"></canvas>
+    </div>`);
+  
+    var bufferCanvas = gameScreen.querySelector('#buffercanvas');
+    var finalCanvas = gameScreen.querySelector('#finalcanvas');
+    var game = new Game(bufferCanvas, finalCanvas);
+    game.onCallbackGameOver(buildGameOverScreen);
+    //var splashScreen = new SplashScreen(finalCanvas);
+    //splashScreen.show();
+  
+    // event listeners
+  
+    var onkeydown = function(event) {
+      switch(event.keyCode) {
+        //case 13:
+        //  game.start(); 
+        //  break;
+        case 37:
+          game.keyLeft();
+          break;
+        case 39:
+          game.keyRight();
+          break;
+        case 38:
+          game.keyUp();
+          break;
+        case 40:
+          game.keyDown();
+          break;
+      }
     }
+  
+    var onkeyup = function(event) {
+      switch(event.keyCode) {
+        case 32:
+          game.keySpace();
+          break;
+      }
+    }
+  
+    document.addEventListener('keydown', onkeydown);
+    document.addEventListener('keyup', onkeyup)
+
+    game.start();
   }
+  
+  buildSplashScreen()
+}  
 
-  document.addEventListener('keydown', onkeydown);
-  document.addEventListener('keyup', onkeyup)
-
-}
-
-
-document.getElementById('start-game-button').addEventListener('click', startGame);
-
-document.getElementById('options-button').addEventListener('click', function() {
-  document.getElementById('splash-screen').style.display = 'none';
-  document.getElementById('options-screen').style.display = null;
-});
-
-document.getElementById('options-return-button').addEventListener('click', function() {
-  document.getElementById('splash-screen').style.display = null;
-  document.getElementById('options-screen').style.display = 'none';
-});
-
-document.getElementById('death-retry-button').addEventListener('click', startGame);
-
-document.getElementById('death-menu-button').addEventListener('click', function() {
-  document.getElementById('splash-screen').style.display = null;
-  document.getElementById('death-screen').style.display = 'none';
-})
-
+window.addEventListener('load',main)

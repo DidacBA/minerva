@@ -61,6 +61,13 @@ body {
   color: rgb(67, 192, 250);
 }
 
+#options-screen {
+  display: flex;
+  flex-direction: column;
+}
+
 h2 {
   font-family: 'Audiowide', cursive;
+  font-size: 10vw;
+  margin-left: 1vw;
 }

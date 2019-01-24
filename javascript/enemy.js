@@ -65,18 +65,17 @@ Enemy.prototype.update = function() {
     this.increaseSize();
   }
 
-  if (this.startDrawX > 600 && this.startDrawX < 700 && this.startDrawY > 300 && this.startDrawY < 400) {
-    if (this.isPlayerShooting === true) {
-      this.isDead = true;
-    }
-  }
-
   if (this.isAttacking) {
-    console.log("attack!");
     this.ctx.globalAlpha = 0.5;
     this.ctx.fillStyle = 'red';
     this.ctx.fillRect(0, 0, 1280, 720);
     this.ctx.globalAlpha = 1;
+  }
+}
+
+Enemy.prototype.killEnemy = function() {
+  if (this.startDrawX > 600 && this.startDrawX < 700 && this.startDrawY > 300 && this.startDrawY < 400) {
+      this.isDead = true;
   }
 }
 
