@@ -19,7 +19,7 @@ function main() {
         <button id="options-button" class="menu-buttons">Options</button>
       </div>
 
-      <audio src="music/bensound-epic.mp3" autoplay>
+      <audio src="music/bensound-epic.mp3" autoplay loop>
     </div>`);
 
     splashScreen.querySelector('#start-game-button').addEventListener('click', startGame);
@@ -41,6 +41,8 @@ function main() {
     <div id="death-screen">
       <button id="death-retry-button" class="menu-buttons">Live again</button>
       <button id="death-menu-button" class="menu-buttons">Main menu</button>
+      
+      <audio src="music/bensound-november.mp3" autoplay>
     </div>`);
 
     gameOverScreen.querySelector('#death-retry-button').addEventListener('click', startGame);

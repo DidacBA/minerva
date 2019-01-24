@@ -16,7 +16,7 @@ function Player(finalCanvas) {
   this.playerSprite = document.getElementById('character');
   this.cockpitSprite = document.getElementById('cockpit');
 
-  this.health = 500;
+  this.health = 100;
   this.isPlayerDead = false;
 }
 
