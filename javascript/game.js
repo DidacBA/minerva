@@ -10,6 +10,7 @@ function Game(bufferCanvas, finalCanvas) {
   this.backGround = new BackGround(finalCanvas);
   this.player = new Player(finalCanvas);
   this.isPlayerShooting = false;
+  this.shootingSound = new Audio("music/165394__shawnyboy__heavy-machine-gun.wav");
   this.enemies = [];
 
   this._updateEnemies = function() {
@@ -108,6 +109,8 @@ Game.prototype.keyDown = function() {
 
 Game.prototype.keySpace = function() {
   this.isPlayerShooting = !this.isPlayerShooting;
+  this.shootingSound.play();
+
   if(this.isPlayerShooting) {
     this.enemies[0].killEnemy();
   }

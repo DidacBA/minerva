@@ -15,6 +15,7 @@ function Player(finalCanvas) {
 
   this.playerSprite = document.getElementById('character');
   this.cockpitSprite = document.getElementById('cockpit');
+  this.flash = document.getElementById('flash');
 
   this.health = 100;
   this.isPlayerDead = false;
@@ -51,11 +52,8 @@ Player.prototype.shoot = function() {
 
   this.ctx.lineWidth = 10;
 
-  this.ctx.beginPath();
-  this.ctx.moveTo(1100, 450);
-  this.ctx.lineTo(640, 360);
-  this.ctx.stroke();
-
+  this.ctx.drawImage(this.flash, 320, 60);
+  this.ctx.drawImage(this.flash, -335, 70);
 }
 
 Player.prototype.loseHealth = function() {
