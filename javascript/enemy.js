@@ -17,8 +17,8 @@ function Enemy(finalCanvas, x, y, playerIsShooting) {
 
   this.acceleration = 16.3333;
 
-  this.startDrawX = Math.floor(Math.random() * (1100 - 0 + 1)) + 50;
-  this.startDrawY = Math.floor(Math.random()* (600 - 0 + 1)) + 50;
+  this.startDrawX = Math.floor(Math.random() * (1000 - 0 + 1)) + 50;
+  this.startDrawY = Math.floor(Math.random()* (500 - 0 + 1)) + 50;
 
   this.depth = 10000;
 
