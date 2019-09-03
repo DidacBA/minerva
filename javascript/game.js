@@ -13,11 +13,11 @@ class Game {
     this.shootingSound = new Audio("music/165394__shawnyboy__heavy-machine-gun.wav");
     this.lowHealthSound = new Audio("music/135613__danielnieto7__alert.wav");
     this.enemies = [];
-    this._updateEnemies = function () {
+    this._updateEnemies = () => {
       if (this.enemies.length === 0) {
         this._createEnemy();
       }
-      this.enemies.forEach(function (enemy) {
+      this.enemies.forEach((enemy) => {
         enemy.update();
         enemy.render();
         if (enemy.isDead) {
@@ -27,7 +27,7 @@ class Game {
           this.player.loseHealth();
           this.lowHealthSound.play();
         }
-      }.bind(this));
+      });
     };
     this._createEnemy = function () {
       this.enemies.push(new Enemy(this.finalCanvas, 20, 30, this.isPlayerShooting));
@@ -92,9 +92,9 @@ class Game {
     if (this.isPlayerShooting) {
       this.enemies[0].killEnemy();
     }
-    setTimeout(function () {
+    setTimeout(() => {
       this.isPlayerShooting = false;
-    }.bind(this), 2000);
+    }, 2000);
   }
   onCallbackGameOver(callback) {
     this.onGameOver = callback;

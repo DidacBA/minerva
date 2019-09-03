@@ -21,9 +21,9 @@ class Enemy {
     this.isPlayerShooting = playerIsShooting;
     this.isDead = false;
     this.isAttacking = false;
-    this.attackTimeout = setInterval(function () {
+    this.attackTimeout = setInterval(() => {
       this.isAttacking = true;
-    }.bind(this), 3000);
+    }, 3000);
   }
   render() {
     var gradient = this.ctx.createRadialGradient(this.startDrawX, this.startDrawY, (this.sizeEnemyX > 20) ? this.sizeEnemyX - 20 : this.sizeEnemyX, this.startDrawY, this.startDrawY, 1);
