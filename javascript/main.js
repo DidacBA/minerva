@@ -80,7 +80,7 @@ function main() {
   
     // event listeners
   
-    var onkeydown = function(event) {
+    var onkeydown = (event) => {
       switch(event.keyCode) {
         case 37:
           game.keyLeft();
@@ -97,7 +97,7 @@ function main() {
       }
     }
   
-    var onkeyup = function(event) {
+    var onkeyup = (event) => {
       switch(event.keyCode) {
         case 32:
           game.keySpace();

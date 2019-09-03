@@ -14,7 +14,7 @@ class Enemy {
     this.startDrawX = Math.floor(Math.random() * (1000 - 0 + 1)) + 50;
     this.startDrawY = Math.floor(Math.random() * (500 - 0 + 1)) + 50;
     this.depth = 10000;
-    this.increaseSize = function () {
+    this.increaseSize = () => {
       this.sizeEnemyX += 1;
       this.sizeEnemyY += 4;
     };

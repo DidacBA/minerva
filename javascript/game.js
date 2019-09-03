@@ -29,7 +29,7 @@ class Game {
         }
       });
     };
-    this._createEnemy = function () {
+    this._createEnemy = () => {
       this.enemies.push(new Enemy(this.finalCanvas, 20, 30, this.isPlayerShooting));
     };
   }
