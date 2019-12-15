@@ -1,0 +1,111 @@
+@import 'reset';
+
+#canvas {
+    display: flex;
+    flex-direction: column;
+}
+
+canvas {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(59, 56, 56);
+  color: rgb(237, 253, 86);
+}
+
+#canvas-div {
+  display: none;
+}
+
+#splash-screen {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 28vh;
+}
+
+#game-title {
+  font-family: 'Libre Barcode 128 Text', cursive;
+  font-size: 30vw;
+  margin: 0;
+}
+
+#start-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-buttons {
+  padding: 1rem 3rem 1rem 3rem;
+  font-size: 5vw;
+  font-family: 'Audiowide', cursive;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: rgb(253, 255, 236);
+}
+
+.menu-buttons:hover {
+  color: rgb(67, 192, 250);
+}
+
+#options-screen {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  font-family: 'Audiowide', cursive;
+  font-size: 10vw;
+  margin-left: 1vw;
+}
+
+#death-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5%;
+}
+
+h3 {
+  font-family: 'Audiowide', cursive;
+  font-size: 3vw;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+#death-retry-button {
+  margin-top: 1vh;
+}
+
+/*ANIMATIONS*/
+
+.anim-typewriter{
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+             blinkTextCursor 500ms steps(44) infinite normal;
+}
+
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 24em;}
+}
+
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+}
+
+.line-1{
+  position: relative;
+  top: 50%;  
+  width: 24em;
+  margin: 0 auto;
+  border-right: 2px solid rgba(255,255,255,.75);
+  font-size: 180%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-50%);    
+}
